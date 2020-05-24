@@ -1,0 +1,16 @@
+/**
+ * Bulma setup. This application uses Bulma (https://bulma.io/) for styling.
+ */
+
+@charset "utf-8";
+
+// Variables must be set before fonts and Bulma imports
+$family-sans-serif: 'Nunito', sans-serif;
+$body-background-color: hsl(0, 0%, 86%);
+$panel-heading-background-color: #FF6600;
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
+
+// Bulma imports, you can import only what you use
+@import "../node_modules/bulma/bulma.sass";

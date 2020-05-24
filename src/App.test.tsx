@@ -2,8 +2,12 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+it('Renders top stories panel w/o data', () => {
   const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+
+  const panelTitle = getByText(/Hacker News/i);
+  const loadingBlock = getByText(/Loading/i);
+
+  expect(panelTitle).toBeInTheDocument();
+  expect(loadingBlock).toBeInTheDocument();
 });

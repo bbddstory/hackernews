@@ -8,6 +8,11 @@ it('Converts Unix time to elapsed time in hours/minutes', () => {
   let elapsedTime: string = timeAgo(threeHrsAgoInSecs);
   expect(elapsedTime).toBe('3 hours ago');
 
+  const oneHrInSecs = 60 * 60; // 3600 seconds
+  const oneHrAgoInSecs = nowInSecs - oneHrInSecs;
+  elapsedTime = timeAgo(oneHrAgoInSecs);
+  expect(elapsedTime).toBe('1 hour ago');
+
   const tenMinsInSecs = 60 * 10; // 600 seconds
   const tenMinsAgoInSecs = nowInSecs - tenMinsInSecs;
   elapsedTime = timeAgo(tenMinsAgoInSecs);

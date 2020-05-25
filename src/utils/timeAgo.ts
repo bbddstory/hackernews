@@ -8,8 +8,10 @@ const timeAgo = (unixTime: number): string => {
     // Time elapsed in hours with fractions
     const hours: number = (Math.floor(new Date().getTime() / 1000) - unixTime) / 60 / 60;
 
-    if (hours > 1) { // Elapsed time is longer than one hour
-      return `${Math.floor(hours)} hours ago`; // In whole hours
+    if (hours >= 1) { // Elapsed time is longer than or equal to 1 hour
+      const wholeHours: number = Math.floor(hours);
+      
+      return `${wholeHours > 1 ? `${wholeHours} hours` : '1 hour'} ago`; // In hours
     } else {
       const minutes: number = Math.floor(60 * hours);
 

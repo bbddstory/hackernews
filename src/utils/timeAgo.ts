@@ -10,8 +10,12 @@ const timeAgo = (unixTime: number): string => {
 
     if (hours >= 1) { // Elapsed time is longer than or equal to 1 hour
       const wholeHours: number = Math.floor(hours);
-      
-      return `${wholeHours > 1 ? `${wholeHours} hours` : '1 hour'} ago`; // In hours
+
+      if (wholeHours >= 24) {
+        return `${Math.floor(wholeHours / 24)} ${wholeHours === 24 ? 'day' : 'days'} ago`; // In days
+      } else {
+        return `${wholeHours > 1 ? `${wholeHours} hours` : '1 hour'} ago`; // In hours
+      }
     } else {
       const minutes: number = Math.floor(60 * hours);
 

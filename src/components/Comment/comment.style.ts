@@ -14,10 +14,6 @@ export const TopCommentsHeading = styled.p`
 export const CommentSubTextWrap = styled.p`
   color: ${itemSubText};
   margin-bottom: ${baseMargin} !important;
-
-  span {
-    margin-right: ${baseMargin};
-  }
 `;
 
 export const CommentText = styled.div`

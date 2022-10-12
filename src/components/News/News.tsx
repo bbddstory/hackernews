@@ -38,10 +38,10 @@ export const NewsComp: React.FC<INewsProps> = ({ index, itemId }) => {
         <NewsSubTextWrap>
           <span>
             <Link to={`/comments/${itemId}`}>{news.descendants} comments</Link>
-          </span>|
+          </span>&middot;
           <span>
             {news.score}{news.score > 1 ? ' points' : ' point'} by {news.by}
-          </span>|
+          </span>&middot;
           <span>
             {elapsedTime}
           </span>

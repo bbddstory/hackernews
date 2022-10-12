@@ -34,8 +34,7 @@ export const CommentComp: React.FC<ICommentProps> = ({ itemId = 0 }) => {
       <PanelBlock className="panel-block">
         <div className="content is-small">
           <CommentSubTextWrap>
-            <span>{comment.by}</span>
-            <span>{publishTime}</span>
+            {comment.by} &middot; {publishTime}
           </CommentSubTextWrap>
           <CommentText dangerouslySetInnerHTML={{ __html: `${comment.text}` }} />
         </div>

@@ -7,19 +7,20 @@ const timeAgo = (unixTime: number): string => {
   if (unixTime) {
     // Time elapsed in hours with fractions
     const hours: number = (Math.floor(new Date().getTime() / 1000) - unixTime) / 60 / 60;
+    const rtf = new Intl.RelativeTimeFormat('en');
 
     if (hours >= 1) { // Elapsed time is longer than or equal to 1 hour
       const wholeHours: number = Math.floor(hours);
 
       if (wholeHours >= 24) {
-        return `${Math.floor(wholeHours / 24)} ${wholeHours === 24 ? 'day' : 'days'} ago`; // In days
+        return rtf.format(-Math.floor(wholeHours / 24), 'days'); // In days
       } else {
-        return `${wholeHours > 1 ? `${wholeHours} hours` : '1 hour'} ago`; // In hours
+        return rtf.format(-wholeHours, 'hours'); // In hours
       }
-    } else {
+    } else { // Elapsed time is less than 1 hour
       const minutes: number = Math.floor(60 * hours);
 
-      return `${minutes > 1 ? `${minutes} minutes` : '1 minute'} ago`; // In minutes
+      return rtf.format(-minutes, 'minutes'); // In minutes
     }
   } else {
     return 'unknown';
